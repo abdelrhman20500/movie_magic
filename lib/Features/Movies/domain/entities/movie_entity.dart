@@ -6,7 +6,7 @@ class MovieEntity extends Equatable {
   final String title;
   final List<int> genreIds;
   final String overview;
-  final int voteAverage;
+  final num voteAverage;
   final String releaseDate;
 
   const MovieEntity(
