@@ -9,7 +9,7 @@ import '../../../../Core/error/server_exception.dart';
 class MoviesRepository extends MovieRepo{
   final BaseMovieRemoteDataSource baseMovieRemoteDataSource;
 
-  MoviesRepository({required this.baseMovieRemoteDataSource});
+  MoviesRepository(this.baseMovieRemoteDataSource);
   @override
   Future<Either<Failure, List<MovieEntity>>> getNowPlayingMovies()async{
     try {
