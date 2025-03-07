@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_magic/Features/Movies/presentation/views/widgets/build_row_item.dart';
 import 'package:movie_magic/Features/Movies/presentation/views/widgets/now_playing_bloc_builder.dart';
 import 'package:movie_magic/Features/Movies/presentation/views/widgets/popular_bloc_builder.dart';
-import 'package:movie_magic/Features/Movies/presentation/views/widgets/top_rated_component.dart';
+import 'package:movie_magic/Features/Movies/presentation/views/widgets/top_rated_bloc_builder.dart';
 
 
 class MoviesScreen extends StatelessWidget {
