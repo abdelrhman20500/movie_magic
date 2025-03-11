@@ -4,13 +4,17 @@ import 'package:movie_magic/Core/network/error_message_model.dart';
 import 'package:movie_magic/Core/utils/app_constant.dart';
 import 'package:movie_magic/Features/Movies/data/models/movie_details_model.dart';
 import 'package:movie_magic/Features/Movies/data/models/movie_model.dart';
+import 'package:movie_magic/Features/Movies/data/models/movie_recommendation_model.dart';
 import 'package:movie_magic/Features/Movies/domain/use_cases/get_movie_details_use_case.dart';
+import 'package:movie_magic/Features/Movies/domain/use_cases/get_movie_recommendation_use_case.dart';
 
 abstract class BaseMovieRemoteDataSource{
   Future<List<MovieModel>>getNowPlayingMovies();
   Future<List<MovieModel>>getPopularMovies();
   Future<List<MovieModel>>getTopRatedMovies();
   Future<MovieDetailsModel> getMovieDetails(MovieDetailsParameters parameter);
+  Future<List<MovieRecommendationModel>> getMovieRecommendation(RecommendationParameters parameter);
+
 
 }
 class MovieRemoteDataSource extends BaseMovieRemoteDataSource{
@@ -56,9 +60,22 @@ class MovieRemoteDataSource extends BaseMovieRemoteDataSource{
   @override
   Future<MovieDetailsModel> getMovieDetails(MovieDetailsParameters parameter)async{
     final response=  await Dio().get(AppConstant.movieDetailsPath(parameter.movieId));
-    // print(response);
+    print(response);
     if (response.statusCode == 200) {
       return MovieDetailsModel.fromJson(response.data);
+    }else{
+      throw ServerException(
+          errorMessageModel:ErrorMessageModel.fromJson(response.data));
+    }
+  }
+
+  @override
+  Future<List<MovieRecommendationModel>> getMovieRecommendation(RecommendationParameters parameter)async{
+    final response = await Dio().get(AppConstant.nowPlayingMoviesPath);
+    print(response);
+    if (response.statusCode == 200) {
+      return List<MovieRecommendationModel>.from((response.data["results"] as List)
+          .map((e) => MovieRecommendationModel.fromJson(e)));
     }else{
       throw ServerException(
           errorMessageModel:ErrorMessageModel.fromJson(response.data));
