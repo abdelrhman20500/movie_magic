@@ -22,7 +22,7 @@ class NowPlayingBlocBuilder extends StatelessWidget {
           } else if (state is NowPlayingFailure) {
             return Center(child: Text('Error: ${state.errMessage}'));
           } else if (state is NowPlayingSuccess) {
-            return NewWidget(model: state.movie); // Pass the movie list to NewWidget
+            return BuildItemNowPlaying(model: state.movie); // Pass the movie list to NewWidget
           }
           return Container();
         },

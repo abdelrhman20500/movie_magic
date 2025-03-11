@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_magic/Features/Movies/presentation/views/movie_details_screen.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../../../Core/utils/app_constant.dart';
@@ -16,7 +17,8 @@ class BuildPopularItem extends StatelessWidget {
       padding: const EdgeInsets.only(right: 8.0),
       child: InkWell(
         onTap: () {
-          // TODO: Navigate to movie details
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>
+          MovieDetailsScreen(id: movie.id)));
         },
         child: ClipRRect(
           borderRadius: const BorderRadius.all(Radius.circular(8.0)),

@@ -2,12 +2,13 @@ import 'package:animate_do/animate_do.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_magic/Features/Movies/presentation/views/movie_details_screen.dart';
 
 import '../../../../../Core/utils/app_constant.dart';
 import '../../../domain/entities/movie_entity.dart';
 
-class NewWidget extends StatelessWidget {
-  const NewWidget({super.key, required this.model});
+class BuildItemNowPlaying extends StatelessWidget {
+  const BuildItemNowPlaying({super.key, required this.model});
 
   final List<MovieEntity> model; // Receive the movie list
 
@@ -21,10 +22,11 @@ class NewWidget extends StatelessWidget {
           viewportFraction: 1.0,
           onPageChanged: (index, reason) {},
         ),
-        items: model.map((item) { // Use the model list here
+        items: model.map((item) {
           return GestureDetector(
             onTap: () {
-              // TODO: Navigate to movie details
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>
+              MovieDetailsScreen(id:item.id)));
             },
             child: Stack(
               children: [

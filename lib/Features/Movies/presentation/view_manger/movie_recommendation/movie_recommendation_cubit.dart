@@ -6,7 +6,7 @@ class MovieRecommendationCubit extends Cubit<MovieRecommendationState> {
   MovieRecommendationCubit(this.getMovieRecommendationUseCase)
       : super(MovieRecommendationInitial());
   final GetMovieRecommendationUseCase getMovieRecommendationUseCase;
-  void getMovieDetails({required int movieId}) async {
+  void getMovieRecommendation({required int movieId}) async {
     emit(MovieRecommendationLoading());
     final result = await getMovieRecommendationUseCase
         .call(RecommendationParameters(movieId));
