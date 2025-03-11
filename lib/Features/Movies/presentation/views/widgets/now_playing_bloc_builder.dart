@@ -15,6 +15,7 @@ class NowPlayingBlocBuilder extends StatelessWidget {
     return BlocProvider(
       create: (context) => NowPlayingCubit(GetNowPlayingUseCase(MoviesRepository(MovieRemoteDataSource())))..getNowPlaying(),
       child: BlocBuilder<NowPlayingCubit, NowPlayingState>(
+
         builder: (context, state) {
           if (state is NowPlayingLoading) {
             return const Center(child: CircularProgressIndicator());
