@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:movie_magic/Features/Movies/presentation/views/movies_screen.dart';
-import 'package:movie_magic/Features/Movies/presentation/views/see_more_popular_screen.dart';
 
 void main() {
   runApp(const MyApp());
