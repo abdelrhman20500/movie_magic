@@ -19,7 +19,10 @@ class BuildGridViewRecommendation extends StatelessWidget {
           itemCount: model.length,
           itemBuilder: (context, index){
 
-            return BuildItemRecommendation(image: model[index].backdropPath,);
+            return Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: BuildItemRecommendation(image: model[index].backdropPath,),
+            );
           }
       ),
     );

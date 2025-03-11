@@ -17,7 +17,7 @@ class BuildItemRecommendation extends StatelessWidget {
       from: 20,
       duration: const Duration(milliseconds: 500),
       child: ClipRRect(
-        borderRadius: const BorderRadius.all(Radius.circular(4.0)),
+        borderRadius: const BorderRadius.all(Radius.circular(22.0)),
         child: CachedNetworkImage(
           imageUrl: AppConstant.imageUrl(image),
           placeholder: (context, url) => Shimmer.fromColors(

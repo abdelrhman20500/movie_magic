@@ -22,7 +22,7 @@ class BlocBuilderMoviesRecommendation extends StatelessWidget {
           if(state is MovieRecommendationLoading){
             const Center(child: CircularProgressIndicator());
           }else if(state is MovieRecommendationFailure){
-            print(state.errMessage);
+            // print(state.errMessage);
           }else if(state is MovieRecommendationSuccess){
             return BuildGridViewRecommendation(model: state.model,);
           }

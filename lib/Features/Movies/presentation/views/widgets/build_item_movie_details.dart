@@ -46,7 +46,7 @@ class BuildItemMovieDetails extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 16.0),
-              const BuildRowDetails(),
+              BuildRowDetails(voteAverage: movieDetailsEntity.voteAverage,),
               const SizedBox(width: 16.0),
               Text(movieDetailsEntity.releaseDate,
                 style: const TextStyle(

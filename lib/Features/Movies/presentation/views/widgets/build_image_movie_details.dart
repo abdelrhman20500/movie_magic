@@ -34,6 +34,7 @@ class BuildImageMovieDetails extends StatelessWidget {
             },
             blendMode: BlendMode.dstIn,
             child: CachedNetworkImage(
+              height: MediaQuery.of(context).size.height*0.4,
               width: MediaQuery.of(context).size.width,
               imageUrl: AppConstant.imageUrl(image),
               fit: BoxFit.cover,

@@ -2,10 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class BuildRowItem extends StatelessWidget {
-  const BuildRowItem({super.key, required this.title, required this.subTitle,});
+  const BuildRowItem({
+    super.key,
+    required this.title,
+    required this.subTitle,
+    required this.onSeeMoreTap, // Add a callback for the tap event
+  });
 
   final String title;
   final String subTitle;
+  final VoidCallback onSeeMoreTap; // Callback type for tap event
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -13,7 +20,8 @@ class BuildRowItem extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(title,
+          Text(
+            title,
             style: GoogleFonts.poppins(
               fontSize: 19,
               color: Colors.white,
@@ -22,18 +30,19 @@ class BuildRowItem extends StatelessWidget {
             ),
           ),
           InkWell(
-            onTap: () {
-              /// TODO : NAVIGATION TO POPULAR SCREEN
-            },
+            onTap: onSeeMoreTap, // Trigger the callback on tap
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
-                  Text(subTitle,style: const TextStyle(color: Colors.white)),
+                  Text(
+                    subTitle,
+                    style: const TextStyle(color: Colors.white),
+                  ),
                   const Icon(
                     Icons.arrow_forward_ios,
                     size: 16.0,
-                  )
+                  ),
                 ],
               ),
             ),
